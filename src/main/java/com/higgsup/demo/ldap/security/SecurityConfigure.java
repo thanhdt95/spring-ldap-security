@@ -12,13 +12,20 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/api/**").hasRole("ADMIN").and().formLogin().and().httpBasic();
+		http.authorizeRequests().anyRequest().authenticated().and().formLogin().and().httpBasic();
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("user").password("{noop}thanhdt").roles("USER").and().withUser("admin")
-				.password("{noop}admin123").roles("USER", "ADMIN");
+		auth
+		.ldapAuthentication()
+		.userSearchBase("ou=people")
+		.userSearchFilter("(uid={0})")
+		.groupSearchBase("ou=groups")
+		.groupSearchFilter("member={0}")
+		.contextSource()
+			.url("ldap://localhost:8389/dc=habuma,dc=com").ldif("classpath:test-abc.ldif")
+		.and().passwordCompare().passwordAttribute("userPassword");
 	}
 
 }
