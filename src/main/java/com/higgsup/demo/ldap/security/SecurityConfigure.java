@@ -19,13 +19,11 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 		.ldapAuthentication()
-		.userSearchBase("ou=people")
-		.userSearchFilter("(uid={0})")
-		.groupSearchBase("ou=groups")
-		.groupSearchFilter("member={0}")
+		.userDnPatterns("uid={0},ou=people")
 		.contextSource()
-			.url("ldap://localhost:8389/dc=habuma,dc=com").ldif("classpath:test-abc.ldif")
-		.and().passwordCompare().passwordAttribute("userPassword");
+			.root("dc=habuma,dc=com").ldif("test-server.ldif")
+			.and()
+		.passwordCompare().passwordAttribute("userPassword");
 	}
 
 }

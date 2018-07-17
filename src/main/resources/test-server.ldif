@@ -2,10 +2,12 @@ dn: ou=groups,dc=habuma,dc=com
 objectclass: top
 objectclass: organizationalUnit
 ou: groups
+
 dn: ou=people,dc=habuma,dc=com
 objectclass: top
 objectclass: organizationalUnit
 ou: people
+
 dn: uid=habuma,ou=people,dc=habuma,dc=com
 objectclass: top
 objectclass: person
@@ -15,6 +17,7 @@ cn: Craig Walls
 sn: Walls
 uid: habuma
 userPassword: password
+
 dn: uid=jsmith,ou=people,dc=habuma,dc=com
 objectclass: top
 objectclass: person
@@ -24,6 +27,7 @@ cn: John Smith
 sn: Smith
 uid: jsmith
 userPassword: password
+
 dn: cn=spittr,ou=groups,dc=habuma,dc=com
 objectclass: top
 objectclass: groupOfNames
