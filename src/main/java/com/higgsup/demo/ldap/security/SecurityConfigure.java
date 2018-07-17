@@ -21,7 +21,7 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 		.ldapAuthentication()
 		.userDnPatterns("uid={0},ou=people")
 		.contextSource()
-			.root("dc=habuma,dc=com").ldif("test-server.ldif")
+			.root("dc=habuma,dc=com").ldif("classpath:test-server.ldif")
 			.and()
 		.passwordCompare().passwordAttribute("userPassword");
 	}
