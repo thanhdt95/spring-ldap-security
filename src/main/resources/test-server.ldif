@@ -28,8 +28,8 @@ sn: Smith
 uid: jsmith
 userPassword: password
 
-dn: cn=spittr,ou=groups,dc=habuma,dc=com
+dn: cn=managers,ou=groups,dc=habuma,dc=com
 objectclass: top
 objectclass: groupOfNames
-cn: spittr
+cn: managers
 member: uid=habuma,ou=people,dc=habuma,dc=com

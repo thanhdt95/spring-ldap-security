@@ -12,7 +12,12 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().authenticated().and().formLogin().and().httpBasic();
+		http.authorizeRequests()
+		.antMatchers("/api/**")
+		.hasRole("MANAGERS")
+		.anyRequest()
+		.authenticated().and().formLogin().and().httpBasic()
+		.and().logout().permitAll().and().httpBasic();
 	}
 
 	@Override
@@ -20,10 +25,12 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 		auth
 		.ldapAuthentication()
 		.userDnPatterns("uid={0},ou=people")
+		.groupSearchBase("ou=groups")
+		.groupSearchFilter("member={0}")
 		.contextSource()
 			.root("dc=habuma,dc=com").ldif("classpath:test-server.ldif")
 			.and()
 		.passwordCompare().passwordAttribute("userPassword");
 	}
-
+	
 }
