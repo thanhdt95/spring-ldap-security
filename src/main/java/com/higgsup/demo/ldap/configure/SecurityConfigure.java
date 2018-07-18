@@ -1,4 +1,4 @@
-package com.higgsup.demo.ldap.security;
+package com.higgsup.demo.ldap.configure;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -30,10 +30,16 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/api/**")
-		.hasRole("MANAGERS")
+		.permitAll()
 		.anyRequest()
-		.authenticated().and().formLogin().and().httpBasic()
-		.and().logout().logoutUrl("/logout").permitAll().and().httpBasic();
+		.authenticated().and()
+		.formLogin()
+//			.loginPage("/login").and().
+		.and()
+		.httpBasic().and()
+			.logout()
+			.logoutUrl("/logout")
+		.permitAll().and().httpBasic();
 	}
 
 	@Override
