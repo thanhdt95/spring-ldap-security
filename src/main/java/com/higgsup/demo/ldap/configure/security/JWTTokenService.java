@@ -20,9 +20,9 @@ public class JWTTokenService {
 	  static final String TOKEN_PREFIX = "Bearer";
 	  static final String HEADER_STRING = "Authorization";
 
-	  static void addAuthentication(HttpServletResponse res, String username) {
+	  static void addAuthentication(HttpServletResponse res, String uid) {
 	    String JWT = Jwts.builder()
-	        .setSubject(username)
+	        .setSubject(uid)
 	        .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
 	        .signWith(SignatureAlgorithm.HS512, SECRET)
 	        .compact();

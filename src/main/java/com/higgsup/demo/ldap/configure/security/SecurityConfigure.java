@@ -33,15 +33,11 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 		http.csrf().disable().authorizeRequests()
 			.antMatchers("/").permitAll()
 			.antMatchers(HttpMethod.POST, "/api/login").permitAll()
-			.anyRequest()
-			.authenticated()
-			.and()
-			.formLogin()
-			.and()
-			.httpBasic()
-			.and()
-			.addFilterBefore(new JWTLoginFilter("/api/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
-			.addFilterBefore(new JWTAuthenticateFilter(),  UsernamePasswordAuthenticationFilter.class);
+		.anyRequest()
+		.authenticated().and()
+		.httpBasic().and()
+		.addFilterBefore(new JWTLoginFilter("/api/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
+		.addFilterBefore(new JWTAuthenticateFilter(),  UsernamePasswordAuthenticationFilter.class);
 	}
 
 	@Override
