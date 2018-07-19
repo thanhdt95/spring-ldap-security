@@ -7,7 +7,7 @@ import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.support.LdapNameBuilder;
 import org.springframework.stereotype.Service;
 
-import com.higgsup.demo.ldap.entity.UserDetail;
+import com.higgsup.demo.ldap.entity.User;
 
 @Service
 public class UserServicesImpl implements UserServices {
@@ -16,7 +16,7 @@ public class UserServicesImpl implements UserServices {
 	private LdapTemplate ldapTemplate;
 
 	@Override
-	public UserDetail searchUserById(String uid) {
+	public User searchUserById(String uid) {
 		Name dn = LdapNameBuilder.newInstance("dc=habuma,dc=com").add("ou", "people").add("uid", "ben").build();
 		try {
 			Object user = this.ldapTemplate.lookup(dn);

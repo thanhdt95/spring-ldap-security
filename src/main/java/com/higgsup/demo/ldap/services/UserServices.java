@@ -1,9 +1,9 @@
 package com.higgsup.demo.ldap.services;
 
-import com.higgsup.demo.ldap.entity.UserDetail;
+import com.higgsup.demo.ldap.entity.User;
 
 public interface UserServices {
 	
-	public UserDetail searchUserById(String uid);
+	public User searchUserById(String uid);
 	
 }

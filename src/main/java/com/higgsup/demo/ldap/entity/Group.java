@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Group {
 	
-	private List<UserDetail> listUser;
+	private List<User> listUser;
 	
 	private String groupName;
 	
@@ -12,17 +12,17 @@ public class Group {
 		super();
 	}
 
-	public Group(List<UserDetail> listUser, String groupName) {
+	public Group(List<User> listUser, String groupName) {
 		super();
 		this.listUser = listUser;
 		this.groupName = groupName;
 	}
 
-	public List<UserDetail> getListUser() {
+	public List<User> getListUser() {
 		return listUser;
 	}
 
-	public void setListUser(List<UserDetail> listUser) {
+	public void setListUser(List<User> listUser) {
 		this.listUser = listUser;
 	}
 
