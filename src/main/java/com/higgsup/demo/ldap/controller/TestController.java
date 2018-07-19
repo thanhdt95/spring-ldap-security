@@ -22,11 +22,11 @@ public class TestController {
 		return "this is test data";
 	}
 
-//	@GetMapping(ControllerConfigure.BASE_API_URL + "/getUser")
-//	public UserDetail geUserTest() {
-//		UserDetail user = this.userServices.searchUserById("ben");
-//		System.out.println(user.getUid() + ": " + user.getPassword());
-//		return user;
-//	}
+	@GetMapping(ControllerConfigure.BASE_API_URL + "/api")
+	public User geUserTest() {
+		User user = this.userServices.searchUserById("ben");
+		System.out.println(user.getUid() + ": " + user.getPassword());
+		return user;
+	}
 
 }
