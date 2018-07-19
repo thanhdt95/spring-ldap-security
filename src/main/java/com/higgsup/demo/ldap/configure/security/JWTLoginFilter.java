@@ -1,7 +1,6 @@
 package com.higgsup.demo.ldap.configure.security;
 
 import java.io.IOException;
-import java.util.Collections;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

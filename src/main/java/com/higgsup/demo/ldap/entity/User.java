@@ -1,7 +1,5 @@
 package com.higgsup.demo.ldap.entity;
 
-import javax.naming.Name;
-
 import org.springframework.ldap.odm.annotations.Attribute;
 import org.springframework.ldap.odm.annotations.Entry;
 import org.springframework.ldap.odm.annotations.Id;
